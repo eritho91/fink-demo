@@ -16,12 +16,6 @@ public class BirdPostController {
         this.birdPostRepo = birdPostRepo;
     }
 
-    @GetMapping("/")
-    public String index(Model model) {
-        model.addAttribute("posts", birdPostRepo.findAll());
-        return "index";
-    }
-
     @GetMapping("/new")
     public String form(Model model) {
         model.addAttribute("post", new BirdPost());
@@ -31,6 +25,6 @@ public class BirdPostController {
     @PostMapping("/save")
     public String save(@ModelAttribute BirdPost post) {
         birdPostRepo.save(post);
-        return "redirect:/";
+        return "redirect:/home"; // tillbaka till home
     }
 }

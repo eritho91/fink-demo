@@ -17,6 +17,6 @@ public class HomeController {
     @GetMapping("/home")
     public String home(Model model) {
         model.addAttribute("posts", birdPostRepo.findAll());
-        return "home"; // home.html
+        return "home";
     }
 }

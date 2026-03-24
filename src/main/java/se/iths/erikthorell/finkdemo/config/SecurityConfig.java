@@ -14,15 +14,19 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/register", "/css/**").permitAll() // index och register tillåts
+                        .requestMatchers("/", "/register", "/css/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginProcessingUrl("/login")        // POST /login hanteras av Spring Security
-                        .defaultSuccessUrl("/home", true)   // efter lyckad login
+                        .loginPage("/login")                   // visa login.html
+                        .loginProcessingUrl("/login")          // POST /login hanteras av Spring
+                        .defaultSuccessUrl("/home", true)      // efter lyckad login
                         .permitAll()
                 )
-                .logout(logout -> logout.permitAll());
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/")                 // logga ut → index
+                        .permitAll()
+                );
 
         return http.build();
     }

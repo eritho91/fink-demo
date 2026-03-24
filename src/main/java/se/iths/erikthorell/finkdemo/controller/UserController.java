@@ -23,7 +23,7 @@ public class UserController {
     @GetMapping("/register")
     public String showRegisterForm(Model model) {
         model.addAttribute("user", new User());
-        return "register"; // register.html
+        return "register";
     }
 
     @PostMapping("/register")
@@ -36,7 +36,11 @@ public class UserController {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
 
-        // Efter registrering, tillbaka till index.html för login
-        return "redirect:/";
+        return "redirect:/login"; // skicka till login-sidan
+    }
+
+    @GetMapping("/login")
+    public String showLoginForm() {
+        return "login"; // login.html
     }
 }
