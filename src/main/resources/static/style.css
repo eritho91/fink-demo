@@ -6,10 +6,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: #eaffea;
     color: #2e7d32;
-
     margin: 0;
     padding: 15px;
-
     width: 100%;
 }
 
@@ -23,17 +21,15 @@ body {
 /* Rubrik */
 h1 {
     font-family: 'Pacifico', cursive;
-    font-size: 64px;
+    font-size: 80px;  /* Stor på desktop */
     text-align: center;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
+    color: #66bb6a;
 }
 
 /* Underrubrik */
 h3 {
     text-align: center;
-}
-
-h1, h3 {
     color: #66bb6a;
 }
 
@@ -45,7 +41,6 @@ h1, h3 {
     margin: 10px 0;
     border-radius: 14px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-
     width: 100%;
     box-sizing: border-box;
 }
@@ -58,7 +53,6 @@ button {
     padding: 12px;
     border-radius: 10px;
     cursor: pointer;
-
     width: 100%;
     font-size: 16px;
 }
@@ -79,13 +73,10 @@ a {
     padding: 20px;
     border-radius: 14px;
     color: white;
-
     display: flex;
     flex-direction: column;
     gap: 12px;
-
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-
     width: 100%;
     box-sizing: border-box;
 }
@@ -111,14 +102,14 @@ a {
     max-width: 250px;
 }
 
-/* 📱 Extra finjustering för iPhone */
+/* 📱 Mobilanpassning */
 @media (max-width: 600px) {
     body {
         padding: 10px;
     }
 
     h1 {
-        font-size: clamp(48px, 8vw, 64px);
+        font-size: 56px;  /* Stor även på mobil */
     }
 
     .new-post-btn {
