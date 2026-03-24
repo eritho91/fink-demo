@@ -16,17 +16,16 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/register", "/css/**").permitAll() // index och register tillåts utan login
+                        .requestMatchers("/register", "/css/**").permitAll() // tillåt utan login
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/")               // startsidan (index.html) är login
-                        .loginProcessingUrl("/login") // Spring Security hanterar POST /login
-                        .defaultSuccessUrl("/home", true) // efter lyckad login
+                        .loginPage("/login")                // separat login endpoint
+                        .loginProcessingUrl("/login")       // POST /login hanteras av Spring
+                        .defaultSuccessUrl("/home", true)  // efter lyckad login
                         .permitAll()
                 )
                 .logout(logout -> logout.permitAll());
-
         return http.build();
     }
 

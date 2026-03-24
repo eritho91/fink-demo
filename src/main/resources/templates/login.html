@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logga in - Fink</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+
+    <h1>Fink 🐦‍⬛</h1>
+
+    <form action="/login" method="post" class="form-container">
+        <label>Användarnamn:</label>
+        <input type="text" name="username" placeholder="Användarnamn" required/>
+
+        <label>Lösenord:</label>
+        <input type="password" name="password" placeholder="Lösenord" required/>
+
+        <button type="submit">Logga in</button>
+    </form>
+
+    <div style="text-align:center; margin-top: 15px;">
+        <a href="/register"><button>Registrera konto</button></a>
+    </div>
+
+</div>
+</body>
+</html>
