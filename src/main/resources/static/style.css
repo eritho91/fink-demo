@@ -1,24 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #eaffea;
     color: #2e7d32;
-    padding: 20px;
 
+    margin: 0;
+    padding: 15px;
+
+    width: 100%;
+}
+
+/* Wrapper för desktop (centrerad look på större skärmar) */
+.container {
+    width: 100%;
     max-width: 500px;
     margin: auto;
-    width: 100%; /* Lägg till detta så den fyller mobilens bredd */
 }
 
 /* Rubrik */
 h1 {
     font-family: 'Pacifico', cursive;
-    font-size: 50px;
+    font-size: 42px;
+    text-align: center;
     margin-bottom: 10px;
 }
 
 /* Underrubrik */
 h3 {
-    text-align: center;    /* centrera */
+    text-align: center;
 }
 
 h1, h3 {
@@ -27,13 +39,15 @@ h1, h3 {
 
 /* Kort */
 .card {
-    background-color: #a5d6a7; /* mjuk lime */
+    background-color: #a5d6a7;
     color: white;
-    padding: 14px;
-    margin: 12px 0;
+    padding: 16px;
+    margin: 10px 0;
     border-radius: 14px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* mjuk skugga */
-    text-align: left; /* kortens innehåll vänsterjusteras */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Knappar */
@@ -41,9 +55,12 @@ button {
     background-color: #66bb6a;
     color: white;
     border: none;
-    padding: 10px 16px;
+    padding: 12px;
     border-radius: 10px;
     cursor: pointer;
+
+    width: 100%;
+    font-size: 16px;
 }
 
 button:hover {
@@ -54,48 +71,57 @@ button:hover {
 a {
     text-decoration: none;
     color: #2e7d32;
-    display: inline-block;
-    margin-bottom: 15px;
 }
 
 /* Formulär */
 .form-container {
-    background-color: #a5d6a7; /* mjuk lime */
+    background-color: #a5d6a7;
     padding: 20px;
     border-radius: 14px;
     color: white;
+
     display: flex;
     flex-direction: column;
     gap: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* mjuk skugga */
-    text-align: left; /* etiketter vänsterjusterade */
+
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .form-container input {
-    padding: 8px;
+    padding: 12px;
     border-radius: 10px;
     border: none;
     font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .form-container label {
     font-weight: bold;
 }
 
-/* Centrera "Nytt inlägg"-knappen */
-a[href="/new"] {
+/* "Nytt inlägg"-knapp */
+.new-post-btn {
     display: block;
-    margin: 20px auto;
+    margin: 15px auto;
+    width: 80%;
+    max-width: 250px;
 }
 
-/* Kort och formulär fyller hela skärmen på små enheter */
-.card, .form-container {
-    width: 100%;
-    box-sizing: border-box; /* så padding inte ökar bredden */
-}
+/* 📱 Extra finjustering för iPhone */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
 
-/* Små justeringar på knappar och textfält för mobil */
-.form-container input, button {
-    width: 100%;
-    font-size: 18px;
+    h1 {
+        font-size: 36px;
+    }
+
+    .new-post-btn {
+        width: 100%;
+    }
 }

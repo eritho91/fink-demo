@@ -8,16 +8,24 @@
     <title>Fink</title>
 </head>
 <body>
+<div class="container">
+
     <h1>Fink 🐦‍⬛</h1>
-    <a href="/new"><button class="new-post-btn">Nytt inlägg</button>
+
+    <a href="/new">
+        <a href="/new"><button class="new-post-btn">Nytt inlägg</button>
+    </a>
+
     <div>
-        <br>
         <h3>Tidigare sedda</h3>
     </div>
+
     <div th:each="post : ${posts}" class="card">
         <b th:text="${post.species}"></b>
-        <span th:text="${post.location}">-</span>
+        <span th:text="${post.location}"></span>
         <small th:text="${post.createdAt}"></small>
     </div>
+
+</div>
 </body>
 </html>
