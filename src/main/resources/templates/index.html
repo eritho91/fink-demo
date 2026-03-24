@@ -5,15 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fink - Välkommen</title>
     <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container">
+
     <h1>Fink 🐦‍⬛</h1>
 
-    <div class="start-buttons">
-        <a href="/login"><button>Logga in</button></a>
-        <a href="/register"><button>Registrera användare</button></a>
+    <!-- Login-formulär -->
+    <form action="/login" method="post" class="form-container">
+        <label>Användarnamn:</label>
+        <input type="text" name="username" placeholder="Användarnamn" required/>
+
+        <label>Lösenord:</label>
+        <input type="password" name="password" placeholder="Lösenord" required/>
+
+        <button type="submit">Logga in</button>
+    </form>
+
+    <div style="text-align:center; margin-top: 15px;">
+        <a href="/register"><button>Registrera konto</button></a>
     </div>
+
 </div>
 </body>
 </html>
