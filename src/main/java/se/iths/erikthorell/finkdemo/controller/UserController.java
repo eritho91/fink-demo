@@ -34,6 +34,7 @@ public class UserController {
         }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        System.out.println("Registrerar användare");
         userRepository.save(user);
 
         return "redirect:/login"; // skicka till login-sidan
