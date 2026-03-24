@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/style.css">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Fink</title>
+</head>
+<body>
+<h2>Nytt inlägg</h2>
+
+<form action="/save" method="post" th:object="${post}" class="form-container">
+    <label>Art:</label>
+    <input type="text" th:field="*{species}" placeholder="Ex: Domherre"/><br>
+
+    <label>Plats:</label>
+    <input type="text" th:field="*{location}" placeholder="Ex: Stockholm"/><br>
+
+    <button type="submit">Spara</button>
+    <a href="/"><button type="button">Gå tillbaka</button></a>
+</form>
+</body>
+</html>

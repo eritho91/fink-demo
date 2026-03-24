@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eaffea; /* ljus limegrön */
+    color: #2e7d32; /* mörkgrön text */
+    padding: 20px;
+    max-width: 500px;      /* centrerad app-känsla */
+    margin: auto;
+    text-align: center;     /* centrera allt inline-element som rubrik och länkar */
+}
+
+/* Rubrik */
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+/* Underrubrik */
+h3 {
+    text-align: center;    /* centrera */
+}
+
+h1, h3 {
+    color: #66bb6a;
+}
+
+/* Kort */
+.card {
+    background-color: #a5d6a7; /* mjuk lime */
+    color: white;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 14px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* mjuk skugga */
+    text-align: left; /* kortens innehåll vänsterjusteras */
+}
+
+/* Knappar */
+button {
+    background-color: #66bb6a;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #57a05a;
+}
+
+/* Länkar */
+a {
+    text-decoration: none;
+    color: #2e7d32;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/* Formulär */
+.form-container {
+    background-color: #a5d6a7; /* mjuk lime */
+    padding: 20px;
+    border-radius: 14px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* mjuk skugga */
+    text-align: left; /* etiketter vänsterjusterade */
+}
+
+.form-container input {
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+.form-container label {
+    font-weight: bold;
+}
+
+/* Centrera "Nytt inlägg"-knappen */
+a[href="/new"] {
+    display: block;
+    margin: 20px auto;
+}
