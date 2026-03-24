@@ -18,15 +18,12 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/login")                   // visa login.html
-                        .loginProcessingUrl("/login")          // POST /login hanteras av Spring
-                        .defaultSuccessUrl("/home", true)      // efter lyckad login
+                        .loginPage("/login")
+                        .loginProcessingUrl("/login")
+                        .defaultSuccessUrl("/home", true)
                         .permitAll()
                 )
-                .logout(logout -> logout
-                        .logoutSuccessUrl("/")                 // logga ut → index
-                        .permitAll()
-                );
+                .logout(logout -> logout.permitAll());
 
         return http.build();
     }
