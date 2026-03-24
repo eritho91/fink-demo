@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -16,20 +15,17 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                // Tillåt publika sidor
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/register", "/css/**").permitAll()
+                        .requestMatchers("/", "/register", "/css/**").permitAll() // index och register tillåts utan login
                         .anyRequest().authenticated()
                 )
-                // Formlogin inställningar
                 .formLogin(form -> form
-                        .loginPage("/")                  // Login-formulär på startsidan
-                        .loginProcessingUrl("/login")    // POST från formuläret hanteras här
-                        .defaultSuccessUrl("/", true)    // Efter login, gå till startsidan
+                        .loginPage("/")               // startsidan (index.html) är login
+                        .loginProcessingUrl("/login") // Spring Security hanterar POST /login
+                        .defaultSuccessUrl("/home", true) // efter lyckad login
                         .permitAll()
                 )
-                // Logout inställningar
-                .logout(LogoutConfigurer::permitAll);
+                .logout(logout -> logout.permitAll());
 
         return http.build();
     }
