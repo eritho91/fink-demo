@@ -11,19 +11,19 @@ body {
     width: 100%;
 }
 
-/* Wrapper för desktop (centrerad look på större skärmar) */
+/* Wrapper för centrering */
 .container {
     width: 100%;
     max-width: 500px;
     margin: auto;
 }
 
-/* Rubrik */
+/* Huvudrubrik */
 h1 {
     font-family: 'Pacifico', cursive;
-    font-size: 80px;  /* Stor på desktop */
+    font-size: 72px; /* större nu */
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     color: #66bb6a;
 }
 
@@ -42,7 +42,6 @@ h3 {
     border-radius: 14px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     width: 100%;
-    box-sizing: border-box;
 }
 
 /* Knappar */
@@ -61,12 +60,6 @@ button:hover {
     background-color: #57a05a;
 }
 
-/* Länkar */
-a {
-    text-decoration: none;
-    color: #2e7d32;
-}
-
 /* Formulär */
 .form-container {
     background-color: #a5d6a7;
@@ -78,7 +71,6 @@ a {
     gap: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     width: 100%;
-    box-sizing: border-box;
 }
 
 .form-container input {
@@ -87,14 +79,13 @@ a {
     border: none;
     font-size: 16px;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .form-container label {
     font-weight: bold;
 }
 
-/* "Nytt inlägg"-knapp */
+/* "Ny post" / registrera knapp */
 .new-post-btn {
     display: block;
     margin: 15px auto;
@@ -102,16 +93,14 @@ a {
     max-width: 250px;
 }
 
-/* 📱 Mobilanpassning */
+/* Mobilanpassning */
 @media (max-width: 600px) {
     body {
         padding: 10px;
     }
-
     h1 {
-        font-size: 56px;  /* Stor även på mobil */
+        font-size: clamp(48px, 10vw, 72px);
     }
-
     .new-post-btn {
         width: 100%;
     }
