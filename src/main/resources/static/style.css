@@ -1,11 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #eaffea; /* ljus limegrön */
-    color: #2e7d32; /* mörkgrön text */
+    background-color: #eaffea;
+    color: #2e7d32;
     padding: 20px;
-    max-width: 500px;      /* centrerad app-känsla */
+
+    max-width: 500px;
     margin: auto;
-    text-align: center;     /* centrera allt inline-element som rubrik och länkar */
+    width: 100%; /* Lägg till detta så den fyller mobilens bredd */
 }
 
 /* Rubrik */
@@ -85,4 +86,16 @@ a {
 a[href="/new"] {
     display: block;
     margin: 20px auto;
+}
+
+/* Kort och formulär fyller hela skärmen på små enheter */
+.card, .form-container {
+    width: 100%;
+    box-sizing: border-box; /* så padding inte ökar bredden */
+}
+
+/* Små justeringar på knappar och textfält för mobil */
+.form-container input, button {
+    width: 100%;
+    font-size: 18px;
 }
