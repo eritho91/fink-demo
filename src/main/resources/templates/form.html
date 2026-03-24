@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="/style.css">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fink</title>
+    <title>Nytt inlägg - Fink</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
-<h2>Nytt inlägg</h2>
+<h2 style="text-align:center;">Nytt inlägg</h2>
 
 <form action="/save" method="post" th:object="${post}" class="form-container">
     <label>Art:</label>
-    <input type="text" th:field="*{species}" placeholder="Ex: Domherre"/><br>
+    <input type="text" th:field="*{species}" placeholder="Ex: Domherre"/>
 
     <label>Plats:</label>
-    <input type="text" th:field="*{location}" placeholder="Ex: Stockholm"/><br>
+    <input type="text" th:field="*{location}" placeholder="Ex: Stockholm"/>
 
     <button type="submit">Spara</button>
     <a href="/"><button type="button">Gå tillbaka</button></a>
