@@ -20,14 +20,12 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    // Visa registreringssidan
     @GetMapping("/register")
     public String showRegisterForm(Model model) {
         model.addAttribute("user", new User());
         return "register"; // register.html
     }
 
-    // Ta emot registrering
     @PostMapping("/register")
     public String registerUser(@ModelAttribute User user, Model model) {
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
@@ -35,16 +33,10 @@ public class UserController {
             return "register";
         }
 
-        // Hasha lösenord
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
 
-        return "redirect:/login";
-    }
-
-    // Visa login-sidan
-    @GetMapping("/login")
-    public String showLoginForm() {
-        return "login"; // login.html
+        // Efter registrering, tillbaka till index.html för login
+        return "redirect:/";
     }
 }

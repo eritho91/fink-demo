@@ -21,7 +21,7 @@ public class UserDetailsConfig {
                 .map(user -> org.springframework.security.core.userdetails.User
                         .withUsername(user.getUsername())
                         .password(user.getPassword())
-                        .roles("USER") // standardroll
+                        .roles("USER")
                         .build())
                 .orElseThrow(() -> new UsernameNotFoundException("Användare ej hittad: " + username));
     }
