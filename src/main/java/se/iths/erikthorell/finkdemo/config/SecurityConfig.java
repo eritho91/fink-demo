@@ -16,17 +16,21 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                // Tillåt publika sidor
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/register", "/css/**").permitAll()
+                        .requestMatchers("/", "/register", "/css/**").permitAll()
                         .anyRequest().authenticated()
                 )
+                // Formlogin inställningar
                 .formLogin(form -> form
-                        .loginPage("/login")       // sidan med ditt formulär
-                        .defaultSuccessUrl("/", true)
+                        .loginPage("/")                  // Login-formulär på startsidan
+                        .loginProcessingUrl("/login")    // POST från formuläret hanteras här
+                        .defaultSuccessUrl("/", true)    // Efter login, gå till startsidan
                         .permitAll()
                 )
-                .logout(LogoutConfigurer::permitAll
-                );
+                // Logout inställningar
+                .logout(LogoutConfigurer::permitAll);
+
         return http.build();
     }
 
