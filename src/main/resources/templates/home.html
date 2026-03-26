@@ -3,29 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fink - Välkommen</title>
+    <title>Fink - Hem</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-<!-- Loggan UTAN container -->
 <h1 class="logo-text">Fink 🐦‍⬛</h1>
 
 <div class="container">
 
-    <!-- Login -->
-    <form action="/login" method="post" class="form-container">
-        <label for="username">Användarnamn:</label>
-        <input id="username" type="text" name="username" placeholder="Användarnamn" required>
+    <a href="/new" class="button-link">Nytt inlägg</a>
 
-        <label for="password">Lösenord:</label>
-        <input id="password" type="password" name="password" placeholder="Lösenord" required>
+    <div class="list-container">
+        <h3>Tidigare sedda</h3>
 
-        <button type="submit">Logga in</button>
-    </form>
+        <div th:each="post : ${posts}" class="post-card">
+            <b th:text="${post.species}"></b><br>
+            <span th:text="${post.location}"></span><br>
+            <small th:text="${post.createdAt}"></small>
+        </div>
 
-    <!-- Registrera -->
-    <a href="/register" class="button-link">Registrera konto</a>
+    </div>
 
 </div>
 
