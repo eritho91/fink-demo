@@ -1,56 +1,54 @@
-/* ============================= */
 /* Importera Dancing Script för loggan */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
-/* ============================= */
 * {
     box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff; /* vit bakgrund */
-    color: #2e7d32; /* mörk grön text */
     margin: 0;
     padding: 15px;
     width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #2e7d32;
 }
 
-/* ============================= */
-/* Wrapper för centrering */
+/* Wrapper */
 .container {
     width: 100%;
     max-width: 500px;
-    margin: auto;
+    margin: 0 auto;
 }
 
-/* ============================= */
-/* Logga som huvudrubrik */
+/* Logga */
 h1.logo-text {
     font-family: 'Dancing Script', cursive;
-    font-size: 100px;
+    font-size: clamp(48px, 12vw, 100px);
     text-align: center;
-    margin-bottom: 20px;
     color: #2e7d32;
-    background-color: #d8f5a2; /* mjuk lime-grön */
-    padding: 30px;
+    background-color: #d8f5a2;
+    margin: 0 0 20px 0;
+    padding: 25px 15px;
     border-radius: 14px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.1;
+    word-break: break-word;
 }
 
-/* ============================= */
-/* Kort / container runt formulär, listor, knappar */
-.card, .form-container, ul {
-    background-color: #d8f5a2; /* mjuk lime */
+/* Kort */
+.card,
+.form-container,
+.list-container {
+    background-color: #d8f5a2;
     color: #2e7d32;
     padding: 20px;
     margin: 10px 0;
     border-radius: 14px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
 }
 
-/* ============================= */
 /* Formulär */
 .form-container {
     display: flex;
@@ -58,60 +56,65 @@ h1.logo-text {
     gap: 12px;
 }
 
-.form-container input {
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    font-size: 16px;
-    width: 100%;
-}
-
 .form-container label {
     font-weight: bold;
 }
 
-/* ============================= */
+.form-container input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
 /* Knappar */
 button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
     background-color: #66bb6a;
     color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 100%;
     font-size: 16px;
-    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 button:hover {
     background-color: #57a05a;
 }
 
-/* ============================= */
 /* Lista */
 ul {
     list-style: none;
+    margin: 0;
     padding: 0;
 }
 
 li {
+    background-color: #b9f07c;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 14px;
-    background-color: #b9f07c;
 }
 
-/* ============================= */
-/* Mobilanpassning */
+/* Mobil */
 @media (max-width: 600px) {
     body {
         padding: 10px;
     }
-    h1.logo-text {
-        font-size: clamp(48px, 10vw, 100px);
+
+    .card,
+    .form-container,
+    .list-container {
+        padding: 15px;
     }
-    button {
+
+    button,
+    .form-container input {
         font-size: 14px;
     }
 }
