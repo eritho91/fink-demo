@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fink - Hem</title>
+    <title>Fink - Välkommen</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
+<!-- Loggan UTAN container -->
+<h1 class="logo-text">Fink 🐦‍⬛</h1>
+
 <div class="container">
 
-    <h1 class="logo-text">Fink 🐦‍⬛</h1>
+    <!-- Login -->
+    <form action="/login" method="post" class="form-container">
+        <label for="username">Användarnamn:</label>
+        <input id="username" type="text" name="username" placeholder="Användarnamn" required>
 
-    <a href="/new" class="button-link">Nytt inlägg</a>
+        <label for="password">Lösenord:</label>
+        <input id="password" type="password" name="password" placeholder="Lösenord" required>
 
-    <div class="list-container">
-        <h3 class="section-title">Tidigare sedda</h3>
+        <button type="submit">Logga in</button>
+    </form>
 
-        <div th:if="${#lists.isEmpty(posts)}" class="center-text">
-            Inga inlägg ännu.
-        </div>
-
-        <div th:each="post : ${posts}" class="post-card">
-            <span class="post-species" th:text="${post.species}">Art</span>
-            <span class="post-location" th:text="'Plats: ' + ${post.location}">Plats</span>
-            <span class="post-date" th:text="'Tid: ' + ${post.createdAt}">Tid</span>
-        </div>
-    </div>
+    <!-- Registrera -->
+    <a href="/register" class="button-link">Registrera konto</a>
 
 </div>
+
 </body>
 </html>
