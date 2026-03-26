@@ -1,31 +1,27 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="sv" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fink - Välkommen</title>
-    <link rel="stylesheet" href="/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <div class="container">
 
-    <h1>Fink 🐦‍⬛</h1>
+    <h1 class="logo-text">Fink 🐦‍⬛</h1>
 
-    <!-- Login-formulär direkt på startsidan -->
     <form action="/login" method="post" class="form-container">
-        <label>Användarnamn:</label>
-        <input type="text" name="username" placeholder="Användarnamn" required/>
+        <label for="username">Användarnamn:</label>
+        <input id="username" type="text" name="username" placeholder="Användarnamn" required>
 
-        <label>Lösenord:</label>
-        <input type="password" name="password" placeholder="Lösenord" required/>
+        <label for="password">Lösenord:</label>
+        <input id="password" type="password" name="password" placeholder="Lösenord" required>
 
         <button type="submit">Logga in</button>
     </form>
 
-    <div style="text-align:center; margin-top: 15px;">
-        <a href="/register"><button>Registrera konto</button></a>
-    </div>
+    <a href="/register" class="button-link">Registrera konto</a>
 
 </div>
 </body>

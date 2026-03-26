@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nytt inlägg - Fink</title>
-    <link rel="stylesheet" href="/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<h2 style="text-align:center;">Nytt inlägg</h2>
+<div class="container">
 
-<form action="/save" method="post" th:object="${post}" class="form-container">
-    <label>Art:</label>
-    <input type="text" th:field="*{species}" placeholder="Ex: Domherre"/>
+    <h1 class="logo-text">Fink 🐦‍⬛</h1>
 
-    <label>Plats:</label>
-    <input type="text" th:field="*{location}" placeholder="Ex: Stockholm"/>
+    <div class="form-container">
+        <h2 class="page-title">Nytt inlägg</h2>
 
-    <button type="submit">Spara</button>
-    <a href="/"><button type="button">Gå tillbaka</button></a>
-</form>
+        <form action="/save" method="post" th:object="${post}" style="display:flex; flex-direction:column; gap:10px;">
+            <label for="species">Art:</label>
+            <input id="species" type="text" th:field="*{species}" placeholder="Ex: Domherre">
+
+            <label for="location">Plats:</label>
+            <input id="location" type="text" th:field="*{location}" placeholder="Ex: Stockholm">
+
+            <button type="submit">Spara</button>
+        </form>
+    </div>
+
+    <a href="/home" class="button-link">Gå tillbaka</a>
+
+</div>
 </body>
 </html>

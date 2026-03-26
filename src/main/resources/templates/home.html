@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="sv" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fink - Hem</title>
-    <link rel="stylesheet" href="/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <div class="container">
 
-    <h1>Fink 🐦‍⬛</h1>
+    <h1 class="logo-text">Fink 🐦‍⬛</h1>
 
-    <a href="/new"><button class="new-post-btn">Nytt inlägg</button></a>
+    <a href="/new" class="button-link">Nytt inlägg</a>
 
-    <div>
-        <h3>Tidigare sedda</h3>
-    </div>
+    <div class="list-container">
+        <h3 class="section-title">Tidigare sedda</h3>
 
-    <!-- Lista över tidigare inlägg -->
-    <div th:each="post : ${posts}" class="card">
-        <b th:text="${post.species}"></b>
-        <span th:text="${post.location}"></span>
-        <small th:text="${post.createdAt}"></small>
+        <div th:if="${#lists.isEmpty(posts)}" class="center-text">
+            Inga inlägg ännu.
+        </div>
+
+        <div th:each="post : ${posts}" class="post-card">
+            <span class="post-species" th:text="${post.species}">Art</span>
+            <span class="post-location" th:text="'Plats: ' + ${post.location}">Plats</span>
+            <span class="post-date" th:text="'Tid: ' + ${post.createdAt}">Tid</span>
+        </div>
     </div>
 
 </div>
